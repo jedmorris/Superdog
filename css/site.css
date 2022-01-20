@@ -1,0 +1,85 @@
+:root {
+	--cf-dark-color: #4f4f4f;
+	--cf-light-color: #eeeeee;
+	--cf-primary-color: #001E43;
+	--cf-secondary-color: #ff993b;
+}
+
+main>.container {
+	padding: 60px 15px 0;
+	margin-bottom: 5rem;
+}
+
+/* Navbar Styles */
+.navbarBG {
+	background-color: var(--cf-dark-color);
+}
+
+.checkListIcon {
+	color: var(--cf-secondary-color)
+}
+
+.jsIcon {
+	color: gold;
+}
+
+.bsIcon {
+	color: purple;
+}
+
+.htmlIcon {
+	color: orangered;
+}
+
+.cssIcon {
+	color: royalblue;
+}
+
+.btn-outline-primary {
+	color: var(--cf-primary-color) !important;
+	border-color: var(--cf-secondary-color) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+	border-color: var(--cf-primary-color) !important;
+	background-color: var(--cf-secondary-color);
+}
+
+.btn-primary {
+	color: white !important;
+	background-color: var(--cf-secondary-color) !important;
+	border-color: var(--cf-secondary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+	filter: brightness(1, 1) !important;
+	border-color: var(--cf-secondary-color)
+}
+
+/* Footer Styles */
+.footer {
+	background-color: var(--cf-dark-color);
+	color: var(--cf-light-color);
+}
+
+.sticky-footer {
+	position: sticky;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+footer .social>a {
+	color: var(--cf-light-color);
+	opacity: .75;
+}
+
+footer .social>a:hover {
+	color: var(--cf-secondary-color);
+	opacity: .90;
+}
