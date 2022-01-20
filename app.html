@@ -62,10 +62,71 @@
 
 	<main class="flex-shrink-0">
 		<div class="container mt-5">
-			<h1>APP UI WILL GO HERE</h1>
-			<input id="message" name="message" placeholder="Enter A Message">
-			<div class="p-2">
-				<button id="btnSubmit" class="btn btn-primary">Display Message</button>
+			<div class="row row-cols-1 row-cols-md-2">
+				<div class="col">
+					<div class="btn-group">
+						<button type="button" class="btn btn-
+						btn-secondary">Pick A Location
+						</button>
+						<button type="button"
+							class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							<span class="visually-hidden"></span>Toggle
+							Dropdown</span>
+						</button>
+						<div id="eventDropdown" class="dropdown-menu">
+							<!-- Template for dropdown -->
+						</div>
+					</div>
+					<table class="table table-striped">
+						<tr>
+							<th colspan="2" id="statsHeader">Stats
+								For All Events</th>
+						</tr>
+						<tr>
+							<td>Total Attendance</td>
+							<td id="total">160</td>
+						</tr>
+						<tr>
+							<td>Total Attendance</td>
+							<td id="average">160</td>
+						</tr>
+						<tr>
+							<td>Total Attendance</td>
+							<td id="most">160</td>
+						</tr>
+						<tr>
+							<td>Total Attendance</td>
+							<td id="least">160</td>
+						</tr>
+					</table>
+				</div>
+				<div class="col order-first order-md-last">
+					<img src="/img/APPNAMELogo.svg" class="img-fluid p-2" alt="">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<!-- CALL TO ACTION -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<button class="button btn btn-secondary">Add Data</button>
+				</div>
+				<table class="table table-striped" id="eventData">
+					<thead>
+						<tr>
+							<th>Event Name</th>
+							<th>City</th>
+							<th>State</th>
+							<th>Event Date</th>
+						</tr>
+					</thead>
+					<tbody id="eventBody">
+						<!-- Data Goes Here -->
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</main>
