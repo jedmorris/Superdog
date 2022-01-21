@@ -267,7 +267,7 @@
 				</div>
 				<!-- Modal Footer -->
 				<div class="modal-footer">
-					<button type="button" class="btn
+					<button type="button" id="btnSaveData" class="btn
 					btn-secondary" data-bs-dismiss="modal">Save</button>
 				</div>
 
@@ -304,6 +304,7 @@
 	<script src="/js/site.js"></script>
 	<script>
 		window.addEventListener("load", buildDropDown);
+		document.getElementById("btnSaveData").addEventListener("click", saveData);
 	</script>
 </body>
 
