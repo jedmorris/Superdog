@@ -119,6 +119,7 @@ function displayStats(filteredEvents) {
 
 	for (let i = 0; i < filteredEvents.length; i++) {
 
+		// calc attendance
 		currentAttendance = filteredEvents[i].attendance
 		total += currentAttendance;
 
@@ -127,9 +128,7 @@ function displayStats(filteredEvents) {
 			most = currentAttendance
 		}
 		// calc least
-		if (least == -1) {
-			least = currentAttendance;
-		} else if (least > currentAttendance) {
+		if (least == -1 || least > currentAttendance) {
 			least = currentAttendance;
 		}
 
@@ -139,7 +138,14 @@ function displayStats(filteredEvents) {
 	average = (total / filteredEvents.length)
 
 	document.getElementById("total").innerHTML = total.toLocaleString();
-	document.getElementById("average").innerHTML = average.toLocaleString();
 	document.getElementById("most").innerHTML = most.toLocaleString();
 	document.getElementById("least").innerHTML = least.toLocaleString();
+	document.getElementById("average").innerHTML = average.toLocaleString(
+		"en-US",{
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0
+		}
+	);
+
+
 }
