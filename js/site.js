@@ -90,10 +90,10 @@ function buildDropDown() {
 	let distinctCities = [...new Set(cities)];
 
 	// use the ddTemplate
-	let ddItemTemplate = document.importNode(ddTemplate.contentEditable, true);
+	let ddItemTemplate = document.importNode(ddTemplate.content, true);
 	let ddItem = ddItemTemplate.querySelector("a");
 	ddItem.setAttribute("data-city", "All");
-	ddItem.textContent = "All";
+	ddItem.innerText = "All";
 	eventDD.appendChild(ddItem);
 
 }
