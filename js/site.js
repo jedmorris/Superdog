@@ -214,7 +214,7 @@ function saveData() {
 	let obj = {};
 
 	obj["event"] = document.getElementById("newEventName").value;
-	obj["city"] = document.getElementById("newEventName").value;
+	obj["city"] = document.getElementById("newEventCity").value;
 	let stateSel = document.getElementById("newEventState");
 	obj["state"] = stateSel.options[stateSel.selectedIndex].text;
 	obj["attendance"] = parseInt(document.getElementById("newEventAttendance").value, 10);
