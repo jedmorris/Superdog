@@ -110,6 +110,7 @@ function buildDropDown() {
 	displayStats(currentEvents);
 }
 
+// display total stats to the dropdown
 function displayStats(filteredEvents) {
 	let total = 0;
 	let average = 0;
@@ -141,11 +142,32 @@ function displayStats(filteredEvents) {
 	document.getElementById("most").innerHTML = most.toLocaleString();
 	document.getElementById("least").innerHTML = least.toLocaleString();
 	document.getElementById("average").innerHTML = average.toLocaleString(
-		"en-US",{
+		"en-US", {
 			minimumFractionDigits: 0,
 			maximumFractionDigits: 0
 		}
 	);
 
+
+}
+
+
+// show the events for a specific location
+// this fires once user selects a city
+function getEvents(element) {
+
+	let city = element.getAttribute("data-city");
+	curEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
+
+	let filteredEvents = curEvents;
+	// filter the events based on the selected city
+	if (city != "All") {
+		filteredEvents = curEvents.filter(function (e){
+			if (e.city == city) {
+			return e;				
+			}
+		}
+		)
+	}
 
 }
