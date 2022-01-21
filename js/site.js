@@ -108,6 +108,7 @@ function buildDropDown() {
 	}
 	// display the stats
 	displayStats(currentEvents);
+	displayData();
 }
 
 // display total stats to the dropdown
@@ -173,4 +174,34 @@ function getEvents(element) {
 
 	// display the stats fro the selected city
 	displayStats(filteredEvents);
+}
+
+// display all the events w/data on the lower half of the page
+function displayData(filteredEvents) {
+	let template = document.getElementById("eventData-template");
+
+	let eventBody = document.getElementById("eventBody");
+	// clear the table first
+	eventBody.innerHTML = "";
+
+	let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || [];
+
+	// if nothing is there set local storage with the default data
+	if (curEvents.length == 0) {
+		curEvents = events;
+		localStorage.setItem("eventsArray", JSON.stringify(curEvents));
+	}
+
+	for (let i = 0; i < curEvents.length; i++) {
+		let eventRow = document.importNode(template.content, true);
+		let eventCols = eventRow.querySelectorAll("td");
+
+		eventCols[0].textContent = curEvents[i].event;
+		eventCols[1].textContent = curEvents[i].city;
+		eventCols[2].textContent = curEvents[i].state;
+		eventCols[3].textContent = curEvents[i].attendance;
+		eventCols[4].textContent = curEvents[i] = new Date(curEvents[i].date).toLocaleDateString();
+
+		eventBody.appendChild(eventRow);
+	}
 }
