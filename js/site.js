@@ -84,11 +84,16 @@ function buildDropDown() {
 	
 	let currentEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
 
-	// Option 1: get a list of all the values at an index (total cities w/duplicates)
-	let cities = currentEvents.map((event) => e.city);
+	// get a list of all the values at an index (total cities w/duplicates)
+	let cities = currentEvents.map((e) => e.city);
+	// get a distinct list of cities by filtering the array
+	let distinctCities = [...new Set(cities)];
 
-	// Option 2: get a distinct list of cities by filtering the array
-	let distinctCities = [...new Set(currentEvents.map((e) => e, city))];
-
+	// use the ddTemplate
+	let ddItemTemplate = document.importNode(ddTemplate.contentEditable, true);
+	let ddItem = ddItemTemplate.querySelector("a");
+	ddItem.setAttribute("data-city", "All");
+	ddItem.textContent = "All";
+	eventDD.appendChild(ddItem);
 
 }
