@@ -106,6 +106,41 @@ function buildDropDown() {
 		ddItem.innerText = distinctCities[i];
 		eventDD.appendChild(li);
 	}
+	// display the stats
+	displayStats(currentEvents);
+}
+
+function displayStats(filteredEvents) {
+	let total = 0;
+	let average = 0;
+	let most = 0;
+	let least = -1;
+	let currentAttendance = 0;
+
+	for (let i = 0; i < filteredEvents.length; i++) {
+
+		currentAttendance = filteredEvents[i].attendance
+		total += currentAttendance;
+
+		// most calculation
+		if (most < currentAttendance) {
+			most = currentAttendance
+		}
+		// least calculation
+		if (currentAttendance <= least) {
+			least = currentAttendance;
+		}
 
 
+	}
+
+	let eventCounter = filteredEvents.length;
+	average = (total / eventCounter)
+
+
+
+	document.getElementById("total").innerHTML = total.toLocaleString();
+	document.getElementById("average").innerHTML = average.toLocaleString();
+	document.getElementById("most").innerHTML = most.toLocaleString();
+	document.getElementById("least").innerHTML = least.toLocaleString();
 }
