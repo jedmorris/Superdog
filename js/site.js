@@ -122,22 +122,21 @@ function displayStats(filteredEvents) {
 		currentAttendance = filteredEvents[i].attendance
 		total += currentAttendance;
 
-		// most calculation
+		// calc most
 		if (most < currentAttendance) {
 			most = currentAttendance
 		}
-		// least calculation
-		if (currentAttendance <= least) {
+		// calc least
+		if (least == -1) {
 			least = currentAttendance;
+		} else if (least > currentAttendance) {
+			least = currentAttendance
 		}
 
 
 	}
-
-	let eventCounter = filteredEvents.length;
-	average = (total / eventCounter)
-
-
+	// calc average
+	average = (total / filteredEvents.length)
 
 	document.getElementById("total").innerHTML = total.toLocaleString();
 	document.getElementById("average").innerHTML = average.toLocaleString();
