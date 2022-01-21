@@ -130,7 +130,7 @@ function displayStats(filteredEvents) {
 		if (least == -1) {
 			least = currentAttendance;
 		} else if (least > currentAttendance) {
-			least = currentAttendance
+			least = currentAttendance;
 		}
 
 
