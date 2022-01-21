@@ -71,3 +71,24 @@ const events = [{
 		date: "06/01/2019",
 	},
 ];
+
+// builds a list of distinct cities for drop down 
+function buildDropDown() {
+	
+	// grab the event dropdown to add cities too	
+	let eventDD = document.getElementById("eventDropdown");
+	eventDD.innerHTML = "";
+
+	// load our links from a template
+	let ddTemplate = document.getElementById("cityDD-template");
+	
+	let currentEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
+
+	// Option 1: get a list of all the values at an index (total cities w/duplicates)
+	let cities = currentEvents.map((event) => e.city);
+
+	// Option 2: get a distinct list of cities by filtering the array
+	let distinctCities = [...new Set(currentEvents.map((e) => e, city))];
+
+
+}
