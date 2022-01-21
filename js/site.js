@@ -74,14 +74,14 @@ const events = [{
 
 // builds a list of distinct cities for drop down 
 function buildDropDown() {
-	
+
 	// grab the event dropdown to add cities too	
 	let eventDD = document.getElementById("eventDropdown");
 	eventDD.innerHTML = "";
 
 	// load our links from a template
 	let ddTemplate = document.getElementById("cityDD-template");
-	
+
 	let currentEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
 
 	// get a list of all the values at an index (total cities w/duplicates)
@@ -96,5 +96,16 @@ function buildDropDown() {
 	ddItem.setAttribute("data-city", "All");
 	ddItem.innerText = "All";
 	eventDD.appendChild(li);
+
+	// add distinctCities to dropdown
+	for (let i = 0; i < distinctCities.length; i++) {
+		ddItemTemplate = document.importNode(ddTemplate.content, true);
+		li = ddItemTemplate.querySelector("li");
+		ddItem = li.querySelector("a");
+		ddItem.setAttribute("data-city", distinctCities[i]);
+		ddItem.innerText = distinctCities[i];
+		eventDD.appendChild(li);
+	}
+
 
 }
