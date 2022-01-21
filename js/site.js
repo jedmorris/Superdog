@@ -91,9 +91,10 @@ function buildDropDown() {
 
 	// use the ddTemplate
 	let ddItemTemplate = document.importNode(ddTemplate.content, true);
-	let ddItem = ddItemTemplate.querySelector("a");
+	let li = ddItemTemplate.querySelector("li");
+	let ddItem = li.querySelector("a");
 	ddItem.setAttribute("data-city", "All");
 	ddItem.innerText = "All";
-	eventDD.appendChild(ddItem);
+	eventDD.appendChild(li);
 
 }
