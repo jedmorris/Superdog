@@ -162,12 +162,15 @@ function getEvents(element) {
 	let filteredEvents = curEvents;
 	// filter the events based on the selected city
 	if (city != "All") {
-		filteredEvents = curEvents.filter(function (e){
+		filteredEvents = curEvents.filter(function (e) {
 			if (e.city == city) {
-			return e;				
+				return e;
 			}
-		}
-		)
+		})
 	}
 
+	document.getElementById("statsHeader").innerHTML = `Stats For ${city} Events`;
+
+	// display the stats fro the selected city
+	displayStats(filteredEvents);
 }
